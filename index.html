@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Dream Hatcher Tech — Digital Infrastructure &amp; Utility Platforms</title>
   <meta name="description" content="Dream Hatcher Tech is an enterprise digital technology company operating telecommunications gateways, virtual top-up platforms, and digital utility infrastructure.">
   <meta name="author" content="Dream Hatcher Tech">
@@ -41,6 +44,7 @@
       overflow-x: hidden;
       width: 100%;
       position: relative;
+      -webkit-tap-highlight-color: transparent;
     }
     img { max-width: 100%; height: auto; display: block; }
     ul { list-style: none; }
@@ -149,6 +153,10 @@
       text-transform: uppercase;
       cursor: pointer;
       white-space: nowrap;
+      display: inline-block;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      user-select: none;
     }
     .nav-link:hover,
     .nav-link.active {
@@ -175,6 +183,9 @@
       letter-spacing: 0.5px;
       transition: opacity var(--transition);
       white-space: nowrap;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      user-select: none;
     }
     .portal-link:hover { opacity: 0.85; }
 
@@ -185,12 +196,33 @@
       color: #fff;
       font-size: 1.4rem;
       cursor: pointer;
-      padding: 8px;
+      padding: 10px;
+      min-width: 44px;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Mobile overlay */
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 998;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .nav-overlay.active {
+      display: block;
     }
 
     /* ----- MOBILE NAVIGATION (slide) ----- */
     @media (max-width: 920px) {
-      .mobile-toggle { display: block; }
+      .mobile-toggle { display: flex; }
       .main-nav {
         position: fixed;
         top: 64px;
@@ -207,21 +239,30 @@
         border-bottom: 1px solid rgba(212, 160, 23, 0.2);
         overflow-y: auto;
         max-height: calc(100vh - 64px);
+        -webkit-overflow-scrolling: touch;
       }
       .main-nav.open { transform: translateY(0); }
       .nav-link {
         width: 100%;
         text-align: center;
-        padding: 12px;
-        font-size: 0.9rem;
+        padding: 14px 12px;
+        font-size: 0.95rem;
         white-space: normal;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .portal-link {
         margin: 8px 0 0 0;
         justify-content: center;
         width: 100%;
-        padding: 10px;
+        padding: 14px 12px;
         white-space: normal;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
 
@@ -229,6 +270,7 @@
     .hero-section {
       background: var(--header-bg);
       min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -269,7 +311,7 @@
       margin-bottom: 16px;
     }
     .hero-title {
-      font-size: clamp(1.75rem, 4.5vw, 2.8rem);
+      font-size: clamp(1.65rem, 4.5vw, 2.8rem);
       color: #fff;
       margin-bottom: 14px;
     }
@@ -306,6 +348,8 @@
       cursor: pointer;
       border: none;
       transition: all var(--transition);
+      -webkit-tap-highlight-color: transparent;
+      min-height: 44px;
     }
     .btn-primary {
       background: linear-gradient(135deg, var(--gold), var(--gold-light));
@@ -340,7 +384,7 @@
       margin-bottom: 8px;
     }
     .section-title {
-      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-size: clamp(1.4rem, 3vw, 2.1rem);
       margin-bottom: 10px;
     }
     .section-subtitle {
@@ -383,13 +427,13 @@
         flex-direction: column;
         text-align: center;
       }
-      .ecosystem-banner .btn { max-width: 100% !important; }
+      .ecosystem-banner .btn { max-width: 100% !important; width: 100%; }
     }
 
     /* ----- FEATURES ----- */
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
       gap: 18px;
     }
     .feature-card {
@@ -440,7 +484,7 @@
     }
     .partner-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
       gap: 12px;
       margin-top: 18px;
     }
@@ -555,7 +599,7 @@
     .form-group { margin-bottom: 14px; }
     .form-group label {
       display: block;
-      font-size: 0.78rem;
+      font-size: 0.82rem;
       font-weight: 600;
       margin-bottom: 4px;
       color: var(--text-secondary);
@@ -564,15 +608,17 @@
     .form-group textarea,
     .form-group select {
       width: 100%;
-      padding: 10px 14px;
+      padding: 12px 14px;
       border: 1px solid var(--border);
       border-radius: 8px;
       font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
+      font-size: 16px;
       color: var(--text-primary);
       background: var(--bg-body);
       outline: none;
       transition: border-color var(--transition);
+      -webkit-appearance: none;
+      appearance: none;
     }
     .form-group input:focus,
     .form-group textarea:focus,
@@ -581,7 +627,7 @@
     }
     .form-group textarea {
       resize: vertical;
-      min-height: 90px;
+      min-height: 100px;
     }
     .form-row {
       display: grid;
@@ -659,6 +705,12 @@
       letter-spacing: 0.5px;
       cursor: pointer;
       transition: color var(--transition);
+      display: inline-block;
+      padding: 4px 2px;
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+      -webkit-tap-highlight-color: transparent;
     }
     .footer-nav a:hover { color: #fff; }
     .footer-bottom {
@@ -715,6 +767,51 @@
       opacity: 1;
       pointer-events: auto;
     }
+
+    /* ----- SMALL SCREEN FIXES ----- */
+    @media (max-width: 480px) {
+      .hero-section {
+        padding: 60px 12px;
+        min-height: 100vh;
+        min-height: 100dvh;
+      }
+      .hero-badge {
+        font-size: 0.65rem;
+        padding: 4px 10px;
+      }
+      .hero-desc {
+        font-size: 0.88rem;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-actions .btn {
+        width: 100%;
+        max-width: 280px;
+      }
+      .section {
+        padding: 36px 12px;
+      }
+      .ecosystem-banner {
+        padding: 18px 14px;
+      }
+      .feature-card {
+        padding: 20px 16px;
+      }
+      .contact-info-card {
+        padding: 22px 16px;
+      }
+      .contact-form-card {
+        padding: 20px 16px;
+      }
+      .footer-nav {
+        gap: 6px 12px;
+      }
+      .footer-nav a {
+        font-size: 0.7rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -729,17 +826,20 @@
         <i class="fas fa-bars" id="toggleIcon"></i>
       </button>
       <nav class="main-nav" id="mainNav" role="navigation">
-        <a class="nav-link active" data-page="home" onclick="navigate('home')">Overview</a>
-        <a class="nav-link" data-page="platforms" onclick="navigate('platforms')">Platforms &amp; VTU</a>
-        <a class="nav-link" data-page="compliance" onclick="navigate('compliance')">Compliance &amp; Banking</a>
-        <a class="nav-link" data-page="about" onclick="navigate('about')">Company Profile</a>
-        <a class="nav-link" data-page="contact" onclick="navigate('contact')">Contact</a>
-        <a href="https://vtu.dreamhatcher.ink" target="_blank" class="portal-link">
+        <a class="nav-link active" data-page="home" onclick="navigate('home')" href="javascript:void(0)">Overview</a>
+        <a class="nav-link" data-page="platforms" onclick="navigate('platforms')" href="javascript:void(0)">Platforms &amp; VTU</a>
+        <a class="nav-link" data-page="compliance" onclick="navigate('compliance')" href="javascript:void(0)">Compliance &amp; Banking</a>
+        <a class="nav-link" data-page="about" onclick="navigate('about')" href="javascript:void(0)">Company Profile</a>
+        <a class="nav-link" data-page="contact" onclick="navigate('contact')" href="javascript:void(0)">Contact</a>
+        <a href="https://vtu.dreamhatcher.ink" target="_blank" rel="noopener" class="portal-link">
           <i class="fas fa-bolt"></i> Live VTU Portal
         </a>
       </nav>
     </div>
   </header>
+
+  <!-- Mobile overlay to close menu on tap outside -->
+  <div class="nav-overlay" id="navOverlay" onclick="closeMobileNav()"></div>
 
   <main id="main-content" role="main">
     <!-- 1. OVERVIEW (HOME) -->
@@ -750,7 +850,7 @@
           <h1 class="hero-title">Engineering Reliable <span class="hl">Digital Utility</span> Infrastructure</h1>
           <p class="hero-desc">Dream Hatcher Tech designs, deploys, and operates high-availability telecommunications gateways, virtual top-up platforms, and digital identity validation workflows across Nigeria.</p>
           <div class="hero-actions">
-            <a href="https://vtu.dreamhatcher.ink" target="_blank" class="btn btn-primary">
+            <a href="https://vtu.dreamhatcher.ink" target="_blank" rel="noopener" class="btn btn-primary">
               <i class="fas fa-external-link-alt"></i> Access Dreamhatcher VTU
             </a>
             <button class="btn btn-outline" onclick="navigate('compliance')">
@@ -769,7 +869,7 @@
               Our flagship retail and B2B utility platform operating at <strong style="color:var(--gold-light)">vtu.dreamhatcher.ink</strong>. Built with a unified backend microservice delivering automated Airtime, SME/Corporate Data, Electricity Tokens, and Educational PINs.
             </p>
           </div>
-          <a href="https://vtu.dreamhatcher.ink" target="_blank" class="btn btn-primary" style="white-space:nowrap;width:100%;max-width:180px;">
+          <a href="https://vtu.dreamhatcher.ink" target="_blank" rel="noopener" class="btn btn-primary" style="white-space:nowrap;width:100%;max-width:180px;">
             Launch App <i class="fas fa-arrow-right"></i>
           </a>
         </div>
@@ -837,7 +937,7 @@
               <li><i class="fas fa-check-circle" style="color:var(--gold);margin-right:6px;"></i> WAEC / NECO / NABTEB Result Checker PINs</li>
               <li><i class="fas fa-check-circle" style="color:var(--gold);margin-right:6px;"></i> 4-Digit Secure PIN Authorization</li>
             </ul>
-            <a href="https://vtu.dreamhatcher.ink" target="_blank" class="btn btn-primary" style="width:100%;max-width:200px;">
+            <a href="https://vtu.dreamhatcher.ink" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;max-width:200px;">
               <i class="fas fa-external-link-alt"></i> Visit vtu.dreamhatcher.ink
             </a>
           </div>
@@ -1045,13 +1145,13 @@
         <span class="logo-text">Dream Hatcher <span>Tech</span></span>
       </div>
       <nav class="footer-nav">
-        <a onclick="navigate('home')">Overview</a>
-        <a onclick="navigate('platforms')">Platforms</a>
-        <a onclick="navigate('compliance')">Compliance</a>
-        <a onclick="navigate('about')">Company Profile</a>
-        <a onclick="navigate('privacy')">Privacy</a>
-        <a onclick="navigate('terms')">Terms</a>
-        <a onclick="navigate('contact')">Contact</a>
+        <a onclick="navigate('home')" href="javascript:void(0)">Overview</a>
+        <a onclick="navigate('platforms')" href="javascript:void(0)">Platforms</a>
+        <a onclick="navigate('compliance')" href="javascript:void(0)">Compliance</a>
+        <a onclick="navigate('about')" href="javascript:void(0)">Company Profile</a>
+        <a onclick="navigate('privacy')" href="javascript:void(0)">Privacy</a>
+        <a onclick="navigate('terms')" href="javascript:void(0)">Terms</a>
+        <a onclick="navigate('contact')" href="javascript:void(0)">Contact</a>
       </nav>
     </div>
     <div class="footer-bottom">
@@ -1068,10 +1168,7 @@
     // ----- NAVIGATION -----
     function navigate(page) {
       // Close mobile menu if open
-      var nav = document.getElementById('mainNav');
-      if (nav.classList.contains('open')) {
-        toggleMobileNav();
-      }
+      closeMobileNav();
       // Switch pages
       document.querySelectorAll('.page').forEach(function(p) {
         p.classList.remove('active');
@@ -1094,8 +1191,26 @@
     function toggleMobileNav() {
       var nav = document.getElementById('mainNav');
       var icon = document.getElementById('toggleIcon');
+      var overlay = document.getElementById('navOverlay');
       var isOpen = nav.classList.toggle('open');
       icon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+      if (isOpen) {
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      } else {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function closeMobileNav() {
+      var nav = document.getElementById('mainNav');
+      var icon = document.getElementById('toggleIcon');
+      var overlay = document.getElementById('navOverlay');
+      nav.classList.remove('open');
+      icon.className = 'fas fa-bars';
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
     }
 
     // ----- TOAST -----
@@ -1115,9 +1230,17 @@
       e.target.reset();
     }
 
+    // ----- CLOSE MENU ON ESCAPE KEY -----
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeMobileNav();
+      }
+    });
+
     // Expose functions globally
     window.navigate = navigate;
     window.toggleMobileNav = toggleMobileNav;
+    window.closeMobileNav = closeMobileNav;
     window.handleContact = handleContact;
   </script>
 </body>
