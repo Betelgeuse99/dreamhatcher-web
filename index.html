@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Dream Hatcher Tech — Digital Infrastructure &amp; Utility Platforms</title>
   <meta name="description" content="Dream Hatcher Tech is an enterprise digital technology company operating telecommunications gateways, virtual top-up platforms, and digital utility infrastructure.">
@@ -20,161 +20,212 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <style>
-    :root{--navy:#1a2744;--navy-mid:#243352;--navy-light:#2d4068;--gold:#d4a017;--gold-light:#f0c94b;--gold-pale:#fdf3d0;--teal:#00c9a7;--white:#fafafa;--text-primary:#1a1a2e;--text-secondary:#4a4a6a;--text-muted:#7a7a9a;--bg-body:#faf9fe;--bg-card:#ffffff;--bg-card-hover:#f7f5fc;--border:#e4e0ee;--header-bg:linear-gradient(135deg,#1a2744 0%,#243352 50%,#2d4068 100%);--footer-bg:linear-gradient(135deg,#1a2744 0%,#1e2d48 100%);--shadow-sm:0 2px 8px rgba(26,39,68,0.06);--shadow-md:0 4px 20px rgba(26,39,68,0.1);--shadow-lg:0 8px 40px rgba(26,39,68,0.14);--radius:12px;--radius-lg:20px;--transition:0.3s cubic-bezier(0.4,0,0.2,1)}
-    html.dark{--text-primary:#edeaf3;--text-secondary:#b8b4c8;--text-muted:#8a86a0;--bg-body:#0b0f1a;--bg-card:#141b2d;--bg-card-hover:#1c2540;--border:#243352;--shadow-sm:0 2px 8px rgba(0,0,0,0.3);--shadow-md:0 4px 20px rgba(0,0,0,0.4);--shadow-lg:0 8px 40px rgba(0,0,0,0.5)}
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth;font-size:16px}
-    body{font-family:'DM Sans',sans-serif;color:var(--text-primary);background:var(--bg-body);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-    h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.3;color:var(--text-primary)}
-    a{text-decoration:none;color:inherit;transition:color var(--transition)}
-    img{max-width:100%;height:auto}
-    ul{list-style:none}
-    .skip-link{position:absolute;top:-100%;left:16px;background:var(--gold);color:var(--navy);padding:8px 16px;border-radius:0 0 8px 8px;font-weight:600;z-index:9999;transition:top 0.2s}
-    .skip-link:focus{top:0}
+    :root{
+      --navy:#1a2744;
+      --navy-mid:#243352;
+      --navy-light:#2d4068;
+      --gold:#d4a017;
+      --gold-light:#f0c94b;
+      --teal:#00c9a7;
+      --white:#fafafa;
+      --text-primary:#1a1a2e;
+      --text-secondary:#4a4a6a;
+      --text-muted:#7a7a9a;
+      --bg-body:#faf9fe;
+      --bg-card:#ffffff;
+      --bg-card-hover:#f7f5fc;
+      --border:#e4e0ee;
+      --header-bg:linear-gradient(135deg,#1a2744 0%,#243352 50%,#2d4068 100%);
+      --footer-bg:linear-gradient(135deg,#1a2744 0%,#1e2d48 100%);
+      --shadow-sm:0 2px 8px rgba(26,39,68,0.06);
+      --shadow-md:0 4px 20px rgba(26,39,68,0.1);
+      --shadow-lg:0 8px 40px rgba(26,39,68,0.14);
+      --radius:12px;
+      --radius-lg:20px;
+      --transition:0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    
+    html.dark{
+      --text-primary:#edeaf3;
+      --text-secondary:#b8b4c8;
+      --text-muted:#8a86a0;
+      --bg-body:#0b0f1a;
+      --bg-card:#141b2d;
+      --bg-card-hover:#1c2540;
+      --border:#243352;
+      --shadow-sm:0 2px 8px rgba(0,0,0,0.3);
+      --shadow-md:0 4px 20px rgba(0,0,0,0.4);
+      --shadow-lg:0 8px 40px rgba(0,0,0,0.5);
+    }
 
-    .progress-container{position:fixed;top:70px;left:0;width:100%;height:4px;background:rgba(212,160,23,0.2);z-index:1001}
-    .progress-bar{height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-light));width:0%;transition:width 0.1s ease}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;font-size:16px;width:100%;overflow-x:hidden}
+    body{
+      font-family:'DM Sans',sans-serif;
+      color:var(--text-primary);
+      background:var(--bg-body);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      width:100%;
+      overflow-x:hidden;
+      position:relative;
+    }
+    
+    h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.3;color:var(--text-primary)}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;height:auto;display:block}
+    ul{list-style:none}
+
+    /* READING PROGRESS BAR */
+    .progress-container{position:fixed;top:64px;left:0;width:100%;height:3px;background:rgba(212,160,23,0.2);z-index:1001}
+    .progress-bar{height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));width:0%}
 
     /* HEADER */
-    .site-header{background:var(--header-bg);position:sticky;top:0;z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,0.3)}
-    .header-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:70px;display:flex;align-items:center;justify-content:space-between}
-    .logo-group{display:flex;align-items:center;gap:12px;cursor:pointer}
-    .logo-img{width:44px;height:44px;border-radius:50%;object-fit:cover;box-shadow:0 0 12px rgba(212,160,23,0.4)}
-    .logo-text{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff;letter-spacing:0.3px}
+    .site-header{background:var(--header-bg);position:sticky;top:0;z-index:1000;box-shadow:0 2px 15px rgba(0,0,0,0.25)}
+    .header-inner{max-width:1200px;margin:0 auto;padding:0 16px;height:64px;display:flex;align-items:center;justify-content:space-between}
+    .logo-group{display:flex;align-items:center;gap:10px;cursor:pointer}
+    .logo-img{width:38px;height:38px;border-radius:50%;object-fit:cover;box-shadow:0 0 10px rgba(212,160,23,0.4)}
+    .logo-text{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:#fff;letter-spacing:0.3px}
     .logo-text span{color:var(--gold)}
+    
     .main-nav{display:flex;align-items:center;gap:4px}
-    .nav-link{color:rgba(255,255,255,0.78);font-size:0.85rem;font-weight:500;padding:8px 16px;border-radius:8px;transition:all var(--transition);letter-spacing:0.8px;text-transform:uppercase;cursor:pointer}
-    .nav-link:hover,.nav-link.active{color:#fff;background:rgba(255,255,255,0.1)}
-    .nav-link.active{background:rgba(212,160,23,0.2);color:var(--gold-light)}
-    .portal-link{display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy)!important;padding:7px 14px;border-radius:8px;font-size:0.8rem;font-weight:700;cursor:pointer;margin-left:6px;text-transform:uppercase;letter-spacing:0.5px;box-shadow:0 2px 10px rgba(212,160,23,0.3)}
-    .mobile-toggle{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;padding:4px}
+    .nav-link{color:rgba(255,255,255,0.85);font-size:0.8rem;font-weight:500;padding:8px 12px;border-radius:8px;transition:all var(--transition);letter-spacing:0.5px;text-transform:uppercase;cursor:pointer}
+    .nav-link:hover,.nav-link.active{color:#fff;background:rgba(255,255,255,0.12)}
+    .nav-link.active{background:rgba(212,160,23,0.25);color:var(--gold-light)}
+    .portal-link{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy)!important;padding:6px 12px;border-radius:8px;font-size:0.75rem;font-weight:700;cursor:pointer;margin-left:4px;text-transform:uppercase;letter-spacing:0.5px}
+
+    .mobile-toggle{display:none;background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer;padding:8px}
+
     @media(max-width:920px){
       .mobile-toggle{display:block}
-      .main-nav{position:fixed;top:70px;left:0;right:0;background:var(--navy);flex-direction:column;padding:16px;gap:4px;transform:translateY(-120%);transition:transform var(--transition);box-shadow:var(--shadow-lg);z-index:999}
+      .main-nav{
+        position:fixed;
+        top:64px;
+        left:0;
+        right:0;
+        background:#1a2744;
+        flex-direction:column;
+        padding:16px 20px 24px;
+        gap:8px;
+        transform:translateY(-150%);
+        transition:transform 0.3s ease-in-out;
+        box-shadow:0 10px 30px rgba(0,0,0,0.5);
+        z-index:999;
+        border-bottom:1px solid rgba(212,160,23,0.2);
+      }
       .main-nav.open{transform:translateY(0)}
-      .nav-link{width:100%;text-align:center;padding:12px 16px;font-size:0.95rem}
-      .portal-link{margin:8px 0 0 0;justify-content:center;width:100%}
+      .nav-link{width:100%;text-align:center;padding:12px;font-size:0.9rem}
+      .portal-link{margin:8px 0 0 0;justify-content:center;width:100%;padding:10px}
     }
 
     /* HERO */
-    .hero-section{background:var(--header-bg);padding:70px 24px 90px;text-align:center;position:relative;overflow:hidden}
-    .hero-section::before{content:'';position:absolute;top:-50%;left:-20%;width:140%;height:200%;background:radial-gradient(ellipse at 30% 50%,rgba(212,160,23,0.08) 0%,transparent 60%),radial-gradient(ellipse at 70% 30%,rgba(0,201,167,0.06) 0%,transparent 50%);pointer-events:none}
-    .hero-section::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:70px;background:var(--bg-body);clip-path:ellipse(55% 100% at 50% 100%)}
+    .hero-section{background:var(--header-bg);padding:50px 16px 70px;text-align:center;position:relative;overflow:hidden}
+    .hero-section::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:40px;background:var(--bg-body);clip-path:ellipse(55% 100% at 50% 100%)}
     .hero-content{max-width:800px;margin:0 auto;position:relative;z-index:1}
-    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(212,160,23,0.15);border:1px solid rgba(212,160,23,0.3);color:var(--gold-light);padding:6px 18px;border-radius:50px;font-size:0.78rem;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:22px;animation:fadeInDown 0.6s ease}
-    .hero-title{font-size:clamp(2rem,5vw,3.2rem);color:#fff;margin-bottom:18px;animation:fadeInUp 0.7s ease 0.15s both}
-    .hero-title .hl{background:linear-gradient(90deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .hero-desc{color:rgba(255,255,255,0.78);font-size:1.05rem;max-width:640px;margin:0 auto 32px;animation:fadeInUp 0.7s ease 0.3s both}
-    .hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:fadeInUp 0.7s ease 0.45s both}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:0.9rem;font-weight:600;cursor:pointer;border:none;transition:all var(--transition)}
-    .btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy);box-shadow:0 4px 20px rgba(212,160,23,0.35)}
-    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(212,160,23,0.5)}
-    .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.3)}
-    .btn-outline:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.5);transform:translateY(-2px)}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(212,160,23,0.15);border:1px solid rgba(212,160,23,0.3);color:var(--gold-light);padding:5px 14px;border-radius:50px;font-size:0.72rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+    .hero-title{font-size:clamp(1.75rem,4.5vw,2.8rem);color:#fff;margin-bottom:14px}
+    .hero-title .hl{background:linear-gradient(90deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero-desc{color:rgba(255,255,255,0.8);font-size:0.95rem;max-width:640px;margin:0 auto 24px;line-height:1.6}
+    .hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:600;cursor:pointer;border:none;transition:all var(--transition)}
+    .btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy);box-shadow:0 4px 15px rgba(212,160,23,0.35)}
+    .btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.35)}
 
     /* SECTIONS */
-    .section{padding:70px 24px;max-width:1200px;margin:0 auto}
-    .section-header{text-align:center;margin-bottom:50px}
-    .section-label{display:inline-block;font-size:0.73rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-    .section-title{font-size:clamp(1.7rem,3.5vw,2.4rem);margin-bottom:14px}
-    .section-subtitle{color:var(--text-secondary);max-width:620px;margin:0 auto;font-size:0.95rem}
+    .section{padding:50px 16px;max-width:1200px;margin:0 auto}
+    .section-header{text-align:center;margin-bottom:36px}
+    .section-label{display:inline-block;font-size:0.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+    .section-title{font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:10px}
+    .section-subtitle{color:var(--text-secondary);max-width:600px;margin:0 auto;font-size:0.9rem}
 
     /* PRODUCT BANNER */
-    .ecosystem-banner{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);border:1px solid rgba(212,160,23,0.3);border-radius:var(--radius-lg);padding:36px;color:#fff;margin-bottom:48px;display:flex;align-items:center;justify-content:space-between;gap:24px;box-shadow:var(--shadow-md)}
-    .ecosystem-badge{background:var(--gold);color:var(--navy);font-size:0.75rem;font-weight:700;padding:4px 10px;border-radius:4px;text-transform:uppercase;letter-spacing:0.8px;display:inline-block;margin-bottom:10px}
+    .ecosystem-banner{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);border:1px solid rgba(212,160,23,0.3);border-radius:var(--radius-lg);padding:24px;color:#fff;margin-bottom:36px;display:flex;align-items:center;justify-content:space-between;gap:18px;box-shadow:var(--shadow-md)}
+    .ecosystem-badge{background:var(--gold);color:var(--navy);font-size:0.7rem;font-weight:700;padding:3px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:0.8px;display:inline-block;margin-bottom:8px}
     @media(max-width:768px){.ecosystem-banner{flex-direction:column;text-align:center}}
 
     /* FEATURES */
-    .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:24px}
-    .feature-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 24px;transition:all var(--transition);position:relative;overflow:hidden}
-    .feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--teal));opacity:0;transition:opacity var(--transition)}
-    .feature-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--gold)}
-    .feature-card:hover::before{opacity:1}
-    .feature-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:18px}
+    .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+    .feature-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px 20px;box-shadow:var(--shadow-sm);position:relative}
+    .feature-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:14px}
     .fi-gold{background:rgba(212,160,23,0.12);color:var(--gold)}
     .fi-navy{background:rgba(26,39,68,0.1);color:var(--navy-light)}.dark .fi-navy{background:rgba(212,160,23,0.08);color:var(--gold-light)}
     .fi-teal{background:rgba(0,201,167,0.1);color:var(--teal)}
-    .feature-card h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:10px}
-    .feature-card p{color:var(--text-secondary);font-size:0.9rem}
+    .feature-card h3{font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:8px}
+    .feature-card p{color:var(--text-secondary);font-size:0.85rem}
 
     /* COMPLIANCE & PARTNERSHIP BOX */
-    .compliance-card{background:var(--bg-card);border:2px solid rgba(212,160,23,0.35);border-radius:var(--radius-lg);padding:36px;margin:32px 0 40px;box-shadow:var(--shadow-md)}
-    .partner-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:24px}
-    .partner-box{background:var(--bg-body);border:1px solid var(--border);padding:18px;border-radius:var(--radius);display:flex;align-items:center;gap:14px}
-    .partner-box i{font-size:1.6rem;color:var(--gold)}
-    .partner-box h4{font-family:'DM Sans',sans-serif;font-size:0.9rem;font-weight:700}
-    .partner-box p{font-size:0.75rem;color:var(--text-muted);margin:0}
+    .compliance-card{background:var(--bg-card);border:1.5px solid rgba(212,160,23,0.35);border-radius:var(--radius-lg);padding:24px 18px;margin:24px 0 32px;box-shadow:var(--shadow-sm)}
+    .partner-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:18px}
+    .partner-box{background:var(--bg-body);border:1px solid var(--border);padding:14px;border-radius:var(--radius);display:flex;align-items:center;gap:12px}
+    .partner-box i{font-size:1.4rem;color:var(--gold);flex-shrink:0}
+    .partner-box h4{font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:700}
+    .partner-box p{font-size:0.72rem;color:var(--text-muted);margin:0}
 
     /* ABOUT GRID */
-    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-    .about-visual{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);border-radius:var(--radius-lg);padding:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;border:1px solid rgba(212,160,23,0.2)}
-    .spec-table{width:100%;margin-top:16px}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+    .about-visual{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);border-radius:var(--radius-lg);padding:24px;border:1px solid rgba(212,160,23,0.2)}
+    .spec-table{width:100%;margin-top:10px}
     .spec-table tr{border-bottom:1px solid rgba(255,255,255,0.08)}
-    .spec-table td{padding:10px 0;font-size:0.85rem;color:rgba(255,255,255,0.75)}
-    .spec-table td:last-child{text-align:right;color:var(--gold-light);font-weight:600}
+    .spec-table td{padding:8px 0;font-size:0.82rem;color:rgba(255,255,255,0.75)}
+    .spec-table td:last-child{text-align:right;color:var(--gold-light);font-weight:600;word-break:break-all}
     @media(max-width:768px){.about-grid{grid-template-columns:1fr}}
 
     /* CONTACT */
-    .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:40px}
-    .contact-info-card{background:linear-gradient(135deg,var(--navy),var(--navy-mid));border-radius:var(--radius-lg);padding:44px 32px;color:#fff}
-    .contact-info-card h3{color:#fff;font-size:1.5rem;margin-bottom:14px}
-    .contact-info-card>p{color:rgba(255,255,255,0.68);margin-bottom:32px;font-size:0.92rem}
-    .contact-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:24px}
-    .contact-item-icon{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--gold-light);flex-shrink:0}
-    .contact-item-text{font-size:0.9rem}
+    .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:24px}
+    .contact-info-card{background:linear-gradient(135deg,var(--navy),var(--navy-mid));border-radius:var(--radius-lg);padding:28px 20px;color:#fff}
+    .contact-info-card h3{color:#fff;font-size:1.3rem;margin-bottom:10px}
+    .contact-info-card>p{color:rgba(255,255,255,0.68);margin-bottom:20px;font-size:0.85rem}
+    .contact-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px}
+    .contact-item-icon{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:0.9rem;color:var(--gold-light);flex-shrink:0}
+    .contact-item-text{font-size:0.85rem}
     .contact-item-text strong{display:block;margin-bottom:2px}
-    .contact-item-text span{color:rgba(255,255,255,0.62)}
-    .contact-form-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px 32px}
-    .form-group{margin-bottom:18px}
-    .form-group label{display:block;font-size:0.83rem;font-weight:600;margin-bottom:6px;color:var(--text-secondary)}
-    .form-group input,.form-group textarea,.form-group select{width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:15px;color:var(--text-primary);background:var(--bg-body);transition:border-color var(--transition),box-shadow var(--transition);outline:none}
-    .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,160,23,0.12)}
-    .form-group textarea{resize:vertical;min-height:110px}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .contact-item-text span{color:rgba(255,255,255,0.62);word-break:break-all}
+    .contact-form-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px 20px}
+    .form-group{margin-bottom:14px}
+    .form-group label{display:block;font-size:0.78rem;font-weight:600;margin-bottom:4px;color:var(--text-secondary)}
+    .form-group input,.form-group textarea,.form-group select{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text-primary);background:var(--bg-body);outline:none}
+    .form-group textarea{resize:vertical;min-height:90px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     @media(max-width:768px){.contact-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}}
 
     /* LEGAL */
-    .legal-page{max-width:800px;margin:0 auto;padding:50px 24px 80px}
-    .legal-page h1{font-size:clamp(1.7rem,3vw,2.3rem);margin-bottom:8px}
-    .legal-date{color:var(--text-muted);font-size:0.86rem;margin-bottom:36px}
-    .legal-page h2{font-family:'DM Sans',sans-serif;font-size:1.2rem;font-weight:700;margin:32px 0 10px;color:var(--gold)}
-    .legal-page p,.legal-page li{color:var(--text-secondary);font-size:0.93rem;margin-bottom:12px}
-    .legal-page ul{padding-left:24px;list-style:disc}
-    .legal-page li{margin-bottom:8px}
+    .legal-page{max-width:800px;margin:0 auto;padding:40px 16px 60px}
+    .legal-page h1{font-size:clamp(1.4rem,3vw,1.9rem);margin-bottom:6px}
+    .legal-date{color:var(--text-muted);font-size:0.8rem;margin-bottom:24px}
+    .legal-page h2{font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:700;margin:24px 0 8px;color:var(--gold)}
+    .legal-page p,.legal-page li{color:var(--text-secondary);font-size:0.88rem;margin-bottom:10px}
+    .legal-page ul{padding-left:20px;list-style:disc}
 
     /* FOOTER */
-    .site-footer{background:var(--footer-bg);padding:44px 24px 0;border-top:1px solid rgba(212,160,23,0.2)}
-    .footer-top{max-width:1200px;margin:0 auto;text-align:center;padding-bottom:32px}
-    .footer-logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:24px}
-    .footer-logo .logo-img{width:36px;height:36px}
-    .footer-logo .logo-text{font-size:1.15rem}
-    .footer-nav{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 24px;margin-bottom:24px}
-    .footer-nav a{color:rgba(255,255,255,0.68);font-size:0.85rem;font-weight:500;transition:color var(--transition);text-transform:uppercase;letter-spacing:0.5px;cursor:pointer}
-    .footer-nav a:hover{color:#fff}
-    .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding:18px 24px;text-align:center;color:rgba(255,255,255,0.42);font-size:0.8rem;max-width:1200px;margin:0 auto}
-    .footer-disclaimer{margin-top:12px;font-size:0.72rem;line-height:1.6;color:rgba(255,255,255,0.45);max-width:850px;margin-left:auto;margin-right:auto}
+    .site-footer{background:var(--footer-bg);padding:36px 16px 0;border-top:1px solid rgba(212,160,23,0.2)}
+    .footer-top{max-width:1200px;margin:0 auto;text-align:center;padding-bottom:24px}
+    .footer-logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px}
+    .footer-logo .logo-img{width:32px;height:32px}
+    .footer-logo .logo-text{font-size:1.1rem}
+    .footer-nav{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 16px;margin-bottom:18px}
+    .footer-nav a{color:rgba(255,255,255,0.68);font-size:0.75rem;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;cursor:pointer}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding:14px 16px;text-align:center;color:rgba(255,255,255,0.42);font-size:0.75rem;max-width:1200px;margin:0 auto}
+    .footer-disclaimer{margin-top:10px;font-size:0.68rem;line-height:1.5;color:rgba(255,255,255,0.45);max-width:850px;margin-left:auto;margin-right:auto}
 
-    .page{display:none;opacity:0;animation:pageFadeIn 0.35s ease forwards}.page.active{display:block}
-    @keyframes pageFadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes fadeInUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes fadeInDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
-    .toast{position:fixed;bottom:20px;right:20px;background:var(--gold);color:var(--navy);padding:13px 22px;border-radius:10px;font-size:0.88rem;font-weight:600;box-shadow:var(--shadow-lg);transform:translateY(100px);opacity:0;transition:all 0.35s;z-index:2000}
+    .page{display:none;opacity:0;animation:pageFadeIn 0.3s ease forwards}.page.active{display:block}
+    @keyframes pageFadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+    .toast{position:fixed;bottom:16px;right:16px;left:16px;max-width:320px;margin:0 auto;background:var(--gold);color:var(--navy);padding:12px 18px;border-radius:8px;font-size:0.85rem;font-weight:600;box-shadow:var(--shadow-lg);transform:translateY(100px);opacity:0;transition:all 0.3s;z-index:2000;text-align:center}
     .toast.show{transform:translateY(0);opacity:1}
   </style>
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="progress-container" id="progressContainer"><div class="progress-bar" id="progressBar"></div></div>
 
   <!-- HEADER -->
   <header class="site-header" role="banner">
     <div class="header-inner">
-      <div class="logo-group" role="button" tabindex="0" onclick="navigate('home')">
+      <div class="logo-group" onclick="navigate('home')">
         <img src="https://pfst.cf2.poecdn.net/base/image/084950a3ddaea568be591b3764d1c86cd076e581ef43a93670e5442a458be599?w=503&h=496" alt="Dream Hatcher Tech" class="logo-img">
         <span class="logo-text">Dream Hatcher <span>Tech</span></span>
       </div>
       <button class="mobile-toggle" aria-label="Toggle navigation menu" onclick="toggleMobileNav()">
-        <i class="fas fa-bars" aria-hidden="true"></i>
+        <i class="fas fa-bars" id="toggleIcon"></i>
       </button>
       <nav class="main-nav" id="mainNav" role="navigation">
         <a class="nav-link active" data-page="home" onclick="navigate('home')">Overview</a>
@@ -194,7 +245,7 @@
     <div class="page active" id="page-home" role="region">
       <section class="hero-section">
         <div class="hero-content">
-          <div class="hero-badge"><i class="fas fa-shield-check"></i> Enterprise Digital &amp; Telecommunications Infrastructure</div>
+          <div class="hero-badge"><i class="fas fa-shield-check"></i> Digital &amp; Telecommunications Infrastructure</div>
           <h1 class="hero-title">Engineering Reliable <span class="hl">Digital Utility</span> Infrastructure</h1>
           <p class="hero-desc">Dream Hatcher Tech designs, deploys, and operates high-availability telecommunications gateways, virtual top-up platforms, and digital identity validation workflows across Nigeria.</p>
           <div class="hero-actions">
@@ -202,28 +253,28 @@
               <i class="fas fa-external-link-alt"></i> Access Dreamhatcher VTU
             </a>
             <button class="btn btn-outline" onclick="navigate('compliance')">
-              <i class="fas fa-file-contract"></i> Compliance Disclosures
+              <i class="fas fa-file-contract"></i> Compliance
             </button>
           </div>
         </div>
       </section>
 
-      <section class="section" style="padding-top:20px;">
+      <section class="section" style="padding-top:16px;">
         <div class="ecosystem-banner">
           <div>
             <span class="ecosystem-badge">Proprietary Flagship Platform</span>
-            <h2 style="color:#fff;font-size:1.5rem;margin-bottom:8px;">Dreamhatcher VTU Ecosystem</h2>
-            <p style="color:rgba(255,255,255,0.78);font-size:0.92rem;max-width:620px;">
+            <h2 style="color:#fff;font-size:1.35rem;margin-bottom:6px;">Dreamhatcher VTU Ecosystem</h2>
+            <p style="color:rgba(255,255,255,0.78);font-size:0.88rem;max-width:620px;">
               Our flagship retail and B2B utility platform operating at <strong style="color:var(--gold-light)">vtu.dreamhatcher.ink</strong>. Built with a unified backend microservice delivering automated Airtime, SME/Corporate Data, Electricity Tokens, and Educational PINs.
             </p>
           </div>
-          <a href="https://vtu.dreamhatcher.ink" target="_blank" class="btn btn-primary" style="white-space:nowrap;">
+          <a href="https://vtu.dreamhatcher.ink" target="_blank" class="btn btn-primary" style="white-space:nowrap;width:100%;max-width:180px;">
             Launch App <i class="fas fa-arrow-right"></i>
           </a>
         </div>
 
         <div class="section-header">
-          <span class="section-label">Core Infrastructure</span>
+          <span class="section-label">Core Capabilities</span>
           <h2 class="section-title">What Dream Hatcher Tech Builds</h2>
           <p class="section-subtitle">A comprehensive suite of digital utilities, enterprise payment integrations, and network software.</p>
         </div>
@@ -272,32 +323,32 @@
           <p class="section-subtitle">Dream Hatcher Tech owns, designs, and maintains the complete technological infrastructure supporting the Dreamhatcher VTU portal and mobile interfaces.</p>
         </div>
 
-        <div class="about-grid" style="margin-bottom:40px;">
+        <div class="about-grid">
           <div>
-            <h2 style="font-size:1.45rem;margin-bottom:12px;">Unified Utility Experience</h2>
-            <p style="color:var(--text-secondary);margin-bottom:14px;">
+            <h2 style="font-size:1.35rem;margin-bottom:10px;">Unified Utility Experience</h2>
+            <p style="color:var(--text-secondary);font-size:0.88rem;margin-bottom:12px;">
               The Dreamhatcher VTU platform is engineered as a progressive web application and Android mobile system providing automated digital utilities directly to retail customers and institutional agents.
             </p>
-            <ul style="space-y:8px;color:var(--text-secondary);font-size:0.92rem;margin-bottom:24px;">
-              <li><i class="fas fa-check-circle" style="color:var(--gold);margin-right:8px;"></i> Instant Data Purchase (SME, Gifting, Corporate)</li>
-              <li><i class="fas fa-check-circle" style="color:var(--gold);margin-right:8px;"></i> Airtime Virtual Top-Up &amp; Share 'n' Sell</li>
-              <li><i class="fas fa-check-circle" style="color:var(--gold);margin-right:8px;"></i> Electricity Prepaid/Postpaid Meter Token Settlement</li>
-              <li><i class="fas fa-check-circle" style="color:var(--gold);margin-right:8px;"></i> WAEC / NECO / NABTEB Result Checker PINs</li>
-              <li><i class="fas fa-check-circle" style="color:var(--gold);margin-right:8px;"></i> 4-Digit Secure Transaction PIN Authorization</li>
+            <ul style="color:var(--text-secondary);font-size:0.85rem;margin-bottom:18px;line-height:1.9;">
+              <li><i class="fas fa-check-circle" style="color:var(--gold);margin-right:6px;"></i> Instant Data Purchase (SME, Gifting, Corporate)</li>
+              <li><i class="fas fa-check-circle" style="color:var(--gold);margin-right:6px;"></i> Airtime Virtual Top-Up &amp; Share 'n' Sell</li>
+              <li><i class="fas fa-check-circle" style="color:var(--gold);margin-right:6px;"></i> Electricity Prepaid/Postpaid Meter Tokens</li>
+              <li><i class="fas fa-check-circle" style="color:var(--gold);margin-right:6px;"></i> WAEC / NECO / NABTEB Result Checker PINs</li>
+              <li><i class="fas fa-check-circle" style="color:var(--gold);margin-right:6px;"></i> 4-Digit Secure PIN Authorization</li>
             </ul>
-            <a href="https://vtu.dreamhatcher.ink" target="_blank" class="btn btn-primary">
+            <a href="https://vtu.dreamhatcher.ink" target="_blank" class="btn btn-primary" style="width:100%;max-width:200px;">
               <i class="fas fa-external-link-alt"></i> Visit vtu.dreamhatcher.ink
             </a>
           </div>
           <div class="about-visual">
-            <h3 style="color:#fff;font-size:1.2rem;margin-bottom:14px;border-bottom:1px solid rgba(212,160,23,0.3);padding-bottom:8px;width:100%;text-align:left;">System Specifications</h3>
+            <h3 style="color:#fff;font-size:1.1rem;margin-bottom:10px;border-bottom:1px solid rgba(212,160,23,0.3);padding-bottom:6px;">System Specifications</h3>
             <table class="spec-table">
               <tr><td>Product Name</td><td>Dreamhatcher VTU</td></tr>
               <tr><td>Operating URL</td><td>https://vtu.dreamhatcher.ink</td></tr>
-              <tr><td>Parent Tech Company</td><td>Dream Hatcher Tech</td></tr>
+              <tr><td>Parent Company</td><td>Dream Hatcher Tech</td></tr>
               <tr><td>Hosting &amp; Edge</td><td>GitHub Pages / Cloud Edge</td></tr>
-              <tr><td>Security Standard</td><td>256-Bit SSL / TLS Encryption</td></tr>
-              <tr><td>Settlement Rails</td><td>NIBSS Instant Payment (NIP)</td></tr>
+              <tr><td>Security</td><td>256-Bit SSL / TLS Encryption</td></tr>
+              <tr><td>Settlement Rails</td><td>NIBSS Instant Payment</td></tr>
             </table>
           </div>
         </div>
@@ -309,54 +360,54 @@
       <section class="section">
         <div class="section-header">
           <span class="section-label">Regulatory &amp; Due Diligence</span>
-          <h1 class="section-title">Compliance &amp; Operational Disclosures</h1>
-          <p class="section-subtitle">Dream Hatcher Tech operates as a digital technology and software solutions provider in full alignment with Nigerian regulatory and financial standards.</p>
+          <h1 class="section-title">Compliance &amp; Banking Disclosures</h1>
+          <p class="section-subtitle">Dream Hatcher Tech operates as a digital technology and software solutions provider in full alignment with Nigerian regulatory standards.</p>
         </div>
 
         <div class="compliance-card">
-          <h2 style="font-size:1.35rem;margin-bottom:12px;color:var(--navy);"><i class="fas fa-landmark" style="color:var(--gold);margin-right:8px;"></i> Financial Services &amp; Settlement Model</h2>
-          <p style="color:var(--text-secondary);font-size:0.92rem;line-height:1.7;">
-            Dream Hatcher Tech does <strong>not</strong> hold itself out as a direct deposit-taking bank. All monetary wallet operations, dedicated virtual accounts, and customer funds are held in trust and processed exclusively through <strong>licensed commercial banks and Payment Service Providers (PSPs) regulated by the Central Bank of Nigeria (CBN)</strong>.
+          <h2 style="font-size:1.2rem;margin-bottom:10px;color:var(--navy);"><i class="fas fa-landmark" style="color:var(--gold);margin-right:6px;"></i> Financial Services &amp; Settlement Model</h2>
+          <p style="color:var(--text-secondary);font-size:0.85rem;line-height:1.6;">
+            Dream Hatcher Tech does <strong>not</strong> hold itself out as a direct deposit-taking bank. All monetary wallet operations, dedicated virtual accounts, and customer funds are processed exclusively through <strong>licensed commercial banks and Payment Service Providers (PSPs) regulated by the Central Bank of Nigeria (CBN)</strong>.
           </p>
 
           <div class="partner-grid">
             <div class="partner-box">
               <i class="fas fa-building-columns"></i>
               <div>
-                <h4>Licensed Banking Rails</h4>
-                <p>Virtual accounts provisioned through CBN-licensed banks (e.g., Wema Bank / Providus Bank).</p>
+                <h4>Banking Rails</h4>
+                <p>Virtual accounts provisioned via CBN-licensed banks (Wema / Providus Bank).</p>
               </div>
             </div>
             <div class="partner-box">
               <i class="fas fa-shield-halved"></i>
               <div>
                 <h4>Payment Switching</h4>
-                <p>Payment webhooks and settlement handled via licensed PSP gateways (Monnify / Squad Co).</p>
+                <p>Payment webhooks and settlement via licensed PSPs (Monnify / Squad Co).</p>
               </div>
             </div>
             <div class="partner-box">
               <i class="fas fa-tower-broadcast"></i>
               <div>
-                <h4>NCC Tier Aggregators</h4>
-                <p>Direct connectivity to Nigerian Communications Commission (NCC) licensed telecom aggregators.</p>
+                <h4>NCC Aggregators</h4>
+                <p>Direct connectivity to NCC-licensed telecom aggregators.</p>
               </div>
             </div>
             <div class="partner-box">
               <i class="fas fa-user-shield"></i>
               <div>
                 <h4>Identity Verification</h4>
-                <p>Automated verification pipelines integrated with regulated verification providers (Dojah / NDPR compliant).</p>
+                <p>Automated verification pipelines integrated with regulated identity providers.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;">
-          <h3 style="font-size:1.2rem;margin-bottom:12px;">KYC and Anti-Money Laundering (AML) Policy</h3>
-          <p style="color:var(--text-secondary);font-size:0.92rem;margin-bottom:12px;">
-            In compliance with the Money Laundering (Prevention and Prohibition) Act and the Central Bank of Nigeria guidelines, Dream Hatcher Tech implements strict Know-Your-Customer (KYC) procedures across all digital products. We perform automated verification of user identities, phone numbers, and transactional velocity to safeguard against fraudulent transactions.
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;">
+          <h3 style="font-size:1.05rem;margin-bottom:8px;">KYC and Anti-Money Laundering (AML) Policy</h3>
+          <p style="color:var(--text-secondary);font-size:0.85rem;margin-bottom:8px;">
+            In compliance with the Money Laundering (Prevention and Prohibition) Act and Central Bank of Nigeria guidelines, Dream Hatcher Tech implements strict Know-Your-Customer (KYC) procedures across all digital products.
           </p>
-          <p style="color:var(--text-secondary);font-size:0.92rem;">
+          <p style="color:var(--text-secondary);font-size:0.85rem;">
             Customer data is handled in strict compliance with the <strong>Nigeria Data Protection Act (NDPA)</strong>.
           </p>
         </div>
@@ -369,27 +420,27 @@
         <div class="section-header">
           <span class="section-label">Corporate Overview</span>
           <h1 class="section-title">About Dream Hatcher Tech</h1>
-          <p class="section-subtitle">Delivering resilient digital utility and enterprise software architectures for businesses and consumers.</p>
+          <p class="section-subtitle">Delivering resilient digital utility and enterprise software architectures.</p>
         </div>
 
         <div class="about-grid">
           <div>
-            <h2 style="font-size:1.4rem;margin-bottom:14px;">Our Mission</h2>
-            <p style="color:var(--text-secondary);margin-bottom:14px;">
+            <h2 style="font-size:1.3rem;margin-bottom:10px;">Our Mission</h2>
+            <p style="color:var(--text-secondary);font-size:0.85rem;margin-bottom:10px;">
               Founded with the objective of eliminating friction in digital top-ups, enterprise billing, and identity management, Dream Hatcher Tech engineers software products that empower individuals and organizations to transact securely and instantly.
             </p>
-            <p style="color:var(--text-secondary);margin-bottom:14px;">
+            <p style="color:var(--text-secondary);font-size:0.85rem;">
               From our flagship <strong>Dreamhatcher VTU</strong> platform to our network automation tools for commercial Wi-Fi deployments, our solutions prioritize high availability, automated fallback logic, and robust security.
             </p>
           </div>
           <div class="about-visual">
-            <h3 style="color:#fff;font-size:1.2rem;margin-bottom:14px;border-bottom:1px solid rgba(212,160,23,0.3);padding-bottom:8px;width:100%;text-align:left;">Corporate Details</h3>
+            <h3 style="color:#fff;font-size:1.1rem;margin-bottom:10px;border-bottom:1px solid rgba(212,160,23,0.3);padding-bottom:6px;">Corporate Details</h3>
             <table class="spec-table">
               <tr><td>Operating Entity</td><td>Dream Hatcher Tech</td></tr>
               <tr><td>Sector</td><td>Digital Utilities &amp; Software</td></tr>
-              <tr><td>Corporate Domain</td><td>dreamhatcher.ink</td></tr>
+              <tr><td>Domain</td><td>dreamhatcher.ink</td></tr>
               <tr><td>Headquarters</td><td>Maiduguri, Borno State, Nigeria</td></tr>
-              <tr><td>Support Desk</td><td>contact@dreamhatchertech.com</td></tr>
+              <tr><td>Contact</td><td>contact@dreamhatchertech.com</td></tr>
             </table>
           </div>
         </div>
@@ -402,24 +453,24 @@
         <div class="section-header">
           <span class="section-label">Support &amp; Inquiries</span>
           <h1 class="section-title">Contact Dream Hatcher Tech</h1>
-          <p class="section-subtitle">Reach out to our corporate team for partnership, compliance, or enterprise platform support.</p>
+          <p class="section-subtitle">Reach out for partnership, compliance, or platform inquiries.</p>
         </div>
 
         <div class="contact-grid">
           <div class="contact-info-card">
             <h3>Direct Contact</h3>
-            <p>Our dedicated operations team is available Monday through Saturday to handle institutional queries and support requests.</p>
+            <p>Our operations team is available Monday through Saturday for institutional queries.</p>
             <div class="contact-item">
               <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
               <div class="contact-item-text"><strong>Corporate Email</strong><span>contact@dreamhatchertech.com</span></div>
             </div>
             <div class="contact-item">
               <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
-              <div class="contact-item-text"><strong>Corporate Office</strong><span>Dream Hatcher Innovation Center, Maiduguri, Borno State, Nigeria</span></div>
+              <div class="contact-item-text"><strong>Office</strong><span>Maiduguri, Borno State, Nigeria</span></div>
             </div>
             <div class="contact-item">
               <div class="contact-item-icon"><i class="fas fa-globe"></i></div>
-              <div class="contact-item-text"><strong>Live Platforms</strong><span>vtu.dreamhatcher.ink</span></div>
+              <div class="contact-item-text"><strong>Live Portal</strong><span>vtu.dreamhatcher.ink</span></div>
             </div>
           </div>
 
@@ -427,7 +478,7 @@
             <form onsubmit="handleContact(event)">
               <div class="form-row">
                 <div class="form-group"><label>Full Name *</label><input type="text" placeholder="Your Name" required></div>
-                <div class="form-group"><label>Email Address *</label><input type="email" placeholder="name@company.com" required></div>
+                <div class="form-group"><label>Email *</label><input type="email" placeholder="name@company.com" required></div>
               </div>
               <div class="form-group">
                 <label>Subject</label>
@@ -438,9 +489,9 @@
                   <option>Dreamhatcher VTU Support</option>
                 </select>
               </div>
-              <div class="form-group"><label>Message *</label><textarea placeholder="Please describe your inquiry..." required></textarea></div>
-              <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
-                <i class="fas fa-paper-plane"></i> Send Corporate Message
+              <div class="form-group"><label>Message *</label><textarea placeholder="Describe your inquiry..." required></textarea></div>
+              <button type="submit" class="btn btn-primary" style="width:100%;">
+                <i class="fas fa-paper-plane"></i> Send Message
               </button>
             </form>
           </div>
@@ -451,28 +502,20 @@
     <!-- 6. PRIVACY -->
     <div class="page" id="page-privacy" role="region">
       <div class="legal-page">
-        <nav style="font-size:0.85rem;color:var(--text-muted);margin-bottom:16px;">
-          <a onclick="navigate('home')" style="color:var(--gold);cursor:pointer;">Home</a> / Privacy Policy
-        </nav>
-        <h1>Privacy Policy &amp; Data Protection</h1>
+        <h1 style="font-size:1.4rem;">Privacy Policy &amp; Data Protection</h1>
         <p class="legal-date">Last Updated: August 2026</p>
         <p>Dream Hatcher Tech ("we," "our," or "the Company") operates digital utilities and software platforms, including <strong>Dreamhatcher VTU</strong>. This Privacy Policy details how we collect, process, and protect user data under the Nigeria Data Protection Act (NDPA).</p>
         
         <h2>1. Data We Collect</h2>
-        <p>In operating our VTU and utility billing services, we collect:</p>
         <ul>
-          <li><strong>Identity &amp; Contact Information:</strong> Full name, telephone number, email address, and transaction PIN hash.</li>
-          <li><strong>Transactional Records:</strong> Utility bill payments, meter numbers, smartcard numbers, airtime top-ups, and settlement receipts.</li>
-          <li><strong>Technical Identifiers:</strong> IP address, device fingerprints, and browser sessions used for automated fraud prevention.</li>
+          <li><strong>Identity Information:</strong> Name, phone number, email address, transaction PIN hash.</li>
+          <li><strong>Transactional Data:</strong> Bill payments, meter numbers, smartcard numbers, airtime top-ups.</li>
         </ul>
 
-        <h2>2. Use of Information &amp; Regulatory Disclosures</h2>
-        <p>User data is strictly utilized to process utility orders, validate identities via regulated identity channels (e.g., Dojah), and comply with Central Bank of Nigeria (CBN) AML/CFT transaction reporting standards.</p>
+        <h2>2. Data Protection</h2>
+        <p>We deploy 256-bit TLS/SSL encryption across all endpoints and never store plain-text transaction PINs or banking credentials.</p>
 
-        <h2>3. Data Protection &amp; Security</h2>
-        <p>We deploy 256-bit TLS/SSL encryption across all endpoints and never store plain-text transaction PINs or banking credentials on our servers.</p>
-
-        <h2>4. Contact Our Data Protection Officer</h2>
+        <h2>3. Contact</h2>
         <p>For data inquiries, contact: <strong>privacy@dreamhatchertech.com</strong>.</p>
       </div>
     </div>
@@ -480,21 +523,15 @@
     <!-- 7. TERMS -->
     <div class="page" id="page-terms" role="region">
       <div class="legal-page">
-        <nav style="font-size:0.85rem;color:var(--text-muted);margin-bottom:16px;">
-          <a onclick="navigate('home')" style="color:var(--gold);cursor:pointer;">Home</a> / Terms of Service
-        </nav>
-        <h1>Terms and Conditions</h1>
+        <h1 style="font-size:1.4rem;">Terms and Conditions</h1>
         <p class="legal-date">Last Updated: August 2026</p>
-        <p>Welcome to Dream Hatcher Tech. By utilizing our corporate portal or any affiliated software platform (including Dreamhatcher VTU at <code>vtu.dreamhatcher.ink</code>), you agree to comply with these terms.</p>
+        <p>Welcome to Dream Hatcher Tech. By utilizing our corporate portal or affiliated platforms (including Dreamhatcher VTU at <code>vtu.dreamhatcher.ink</code>), you agree to comply with these terms.</p>
 
         <h2>1. Service Provisioning</h2>
-        <p>Dream Hatcher Tech facilitates the delivery of virtual airtime, data bundles, electricity prepaid tokens, and subscription renewals through regulated telecommunications aggregators and licensed utility switches.</p>
+        <p>We facilitate delivery of virtual airtime, data bundles, electricity tokens, and education PINs through regulated telecommunications aggregators and licensed utility switches.</p>
 
-        <h2>2. User Obligations &amp; Prohibited Conduct</h2>
-        <p>Users must provide accurate details during registration and identity verification. Using our platforms for unauthorized financial laundering, spamming, or fraudulent chargebacks will result in immediate account termination and reporting to the relevant authorities.</p>
-
-        <h2>3. Governing Law</h2>
-        <p>These terms shall be governed by and interpreted in accordance with the laws of the Federal Republic of Nigeria.</p>
+        <h2>2. Governing Law</h2>
+        <p>These terms are governed by the laws of the Federal Republic of Nigeria.</p>
       </div>
     </div>
   </main>
@@ -508,10 +545,10 @@
       </div>
       <nav class="footer-nav">
         <a onclick="navigate('home')">Overview</a>
-        <a onclick="navigate('platforms')">Platforms &amp; VTU</a>
-        <a onclick="navigate('compliance')">Compliance &amp; Banking</a>
+        <a onclick="navigate('platforms')">Platforms</a>
+        <a onclick="navigate('compliance')">Compliance</a>
         <a onclick="navigate('about')">Company Profile</a>
-        <a onclick="navigate('privacy')">Privacy Policy</a>
+        <a onclick="navigate('privacy')">Privacy</a>
         <a onclick="navigate('terms')">Terms</a>
         <a onclick="navigate('contact')">Contact</a>
       </nav>
@@ -529,8 +566,9 @@
   <script>
     function navigate(page) {
       var nav = document.getElementById('mainNav');
-      nav.classList.remove('open');
-      document.querySelector('.mobile-toggle').setAttribute('aria-expanded','false');
+      if(nav.classList.contains('open')) {
+        toggleMobileNav();
+      }
       document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});
       var target = document.getElementById('page-'+page);
       if(target){target.classList.add('active');}
@@ -543,7 +581,9 @@
 
     function toggleMobileNav(){
       var n = document.getElementById('mainNav');
-      n.classList.toggle('open');
+      var icon = document.getElementById('toggleIcon');
+      var isOpen = n.classList.toggle('open');
+      icon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
     }
 
     function showToast(msg){
@@ -555,7 +595,7 @@
 
     function handleContact(e){
       e.preventDefault();
-      showToast('Corporate message submitted successfully!');
+      showToast('Message submitted successfully!');
       e.target.reset();
     }
 
