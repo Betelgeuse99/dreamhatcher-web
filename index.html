@@ -7,15 +7,17 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>Dream Hatcher Tech — Digital Infrastructure &amp; Utility Platforms</title>
-  <meta name="description" content="Dream Hatcher Tech is an enterprise digital technology company operating telecommunications gateways, virtual top-up platforms, and digital utility infrastructure.">
+  <title>Dream Hatcher Tech — Starlink, Networks &amp; Digital Infrastructure</title>
+  <meta name="description" content="Dream Hatcher Tech supplies and installs Starlink for business, Wi-Fi access points, Cat6 cabling, crimpers and RJ45 tools — and delivers payment system integration, website and mobile app development, firmware upgrades and café services in Nigeria.">
   <meta name="author" content="Dream Hatcher Tech">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://web.dreamhatcher.ink/">
 
-  <meta property="og:title" content="Dream Hatcher Tech — Digital Infrastructure &amp; Utility Platforms">
-  <meta property="og:description" content="Parent technology firm powering Dreamhatcher VTU, automated utility billing, and payment systems.">
+  <meta property="og:title" content="Dream Hatcher Tech — Starlink, Networks &amp; Digital Infrastructure">
+  <meta property="og:description" content="Starlink sales and installation, network equipment, payment automation, app development and professional IT services from Dream Hatcher Tech.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://web.dreamhatcher.ink/">
+  <meta property="og:image" content="https://web.dreamhatcher.ink/dhtlogo.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -249,6 +251,14 @@
     }
     .nav-overlay.active {
       display: block;
+    }
+
+    /* Compact nav for narrow desktops (extra nav item) */
+    @media (max-width: 1120px) and (min-width: 921px) {
+      .nav-link { font-size: 0.72rem; padding: 8px 8px; letter-spacing: 0.3px; }
+      .portal-link { font-size: 0.7rem; padding: 6px 10px; }
+      .logo-text { font-size: 1.02rem; }
+      .logo-img { width: 34px; height: 34px; }
     }
 
     /* ----- MOBILE NAVIGATION (slide) ----- */
@@ -501,6 +511,263 @@
     .feature-card p {
       color: var(--text-secondary);
       font-size: 0.85rem;
+    }
+
+    /* ----- EQUIPMENT SHOWCASE (auto-scroll, right to left) ----- */
+    .equip-section {
+      padding: 40px 16px 44px;
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+    .equip-frame {
+      position: relative;
+      background: linear-gradient(135deg, #0f1729 0%, #1a2744 48%, #243352 100%);
+      border: 1px solid rgba(212, 160, 23, 0.28);
+      border-radius: var(--radius-lg);
+      padding: 18px 0;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .equip-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 12% 0%, rgba(212, 160, 23, 0.16), transparent 55%);
+      pointer-events: none;
+    }
+    .equip-row {
+      position: relative;
+      overflow: hidden;
+    }
+    .equip-row + .equip-row {
+      margin-top: 14px;
+    }
+    .equip-track {
+      display: flex;
+      width: max-content;
+      align-items: stretch;
+    }
+    .equip-track.is-duplicated {
+      animation: equipScroll 68s linear infinite;
+    }
+    .equip-row:nth-child(2) .equip-track.is-duplicated {
+      animation-duration: 84s;
+    }
+    .equip-row:hover .equip-track,
+    .equip-track:focus-within {
+      animation-play-state: paused;
+    }
+    @keyframes equipScroll {
+      from { transform: translate3d(0, 0, 0); }
+      to { transform: translate3d(-50%, 0, 0); }
+    }
+    .equip-item {
+      flex: 0 0 auto;
+      width: 264px;
+      margin-right: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      outline-offset: -2px;
+    }
+    .equip-item:hover,
+    .equip-item:focus-within {
+      border-color: rgba(212, 160, 23, 0.55);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.32);
+    }
+    .equip-thumb {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #0c1424;
+    }
+    .equip-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s ease;
+    }
+    .equip-item:hover .equip-thumb img,
+    .equip-item:focus-within .equip-thumb img {
+      transform: scale(1.07);
+    }
+    .equip-thumb::after {
+      content: '';
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 45%;
+      background: linear-gradient(to top, rgba(8, 13, 24, 0.55), transparent);
+      pointer-events: none;
+    }
+    .equip-meta {
+      padding: 10px 12px 12px;
+    }
+    .equip-name {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.35;
+      margin-bottom: 2px;
+    }
+    .equip-tag {
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: var(--gold-light);
+      opacity: 0.85;
+    }
+    .equip-edge {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 64px;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .equip-edge-l {
+      left: 0;
+      background: linear-gradient(90deg, #16223c 10%, rgba(22, 34, 60, 0));
+    }
+    .equip-edge-r {
+      right: 0;
+      background: linear-gradient(270deg, #22304e 10%, rgba(34, 48, 78, 0));
+    }
+    .equip-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+      padding: 0 4px;
+    }
+    .equip-note {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      max-width: 720px;
+    }
+    .equip-note i { color: var(--gold); }
+    .equip-cta {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--navy);
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      padding: 10px 16px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity var(--transition), transform var(--transition);
+      white-space: nowrap;
+    }
+    .equip-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+    .dark .equip-cta { color: #0b0f1a; }
+
+    /* ----- SERVICES ----- */
+    .service-section {
+      background: linear-gradient(180deg, rgba(212, 160, 23, 0.05), transparent 65%);
+      border-top: 1px solid var(--border);
+    }
+    .service-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), rgba(212, 160, 23, 0));
+      opacity: 0.75;
+    }
+    .service-card p { margin-bottom: 0; }
+    .svc-list {
+      margin-top: 12px;
+      display: grid;
+      gap: 6px;
+    }
+    .svc-list li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .svc-list li::before {
+      content: '\2713';
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .commit-card {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 24px;
+      align-items: center;
+      margin-top: 24px;
+      padding: 26px 24px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      border: 1px solid rgba(212, 160, 23, 0.28);
+      box-shadow: var(--shadow-md);
+    }
+    .commit-card h3 {
+      color: #fff;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+    .commit-card p {
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.86rem;
+    }
+    .commit-pillars {
+      display: grid;
+      gap: 10px;
+    }
+    .commit-pillar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .commit-pillar i {
+      color: var(--gold-light);
+      font-size: 0.9rem;
+      width: 18px;
+      text-align: center;
+    }
+    @media (max-width: 768px) {
+      .commit-card { grid-template-columns: 1fr; padding: 22px 18px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .equip-track.is-duplicated { animation: none; }
+      .equip-row { overflow-x: auto; }
+    }
+    @media (max-width: 640px) {
+      .equip-section { padding: 32px 12px 36px; }
+      .equip-frame { border-radius: 16px; padding: 14px 0; }
+      .equip-item { width: 214px; margin-right: 12px; }
+      .equip-track.is-duplicated { animation-duration: 52s; }
+      .equip-row:nth-child(2) .equip-track.is-duplicated { animation-duration: 62s; }
+      .equip-meta { padding: 8px 10px 10px; }
+      .equip-name { font-size: 0.75rem; }
+      .equip-tag { font-size: 0.6rem; }
+      .equip-note { font-size: 0.75rem; }
+      .equip-cta { width: 100%; justify-content: center; }
     }
 
     /* ----- COMPLIANCE ----- */
@@ -864,6 +1131,39 @@
       }
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Dream Hatcher Tech",
+    "url": "https://web.dreamhatcher.ink/",
+    "image": "https://web.dreamhatcher.ink/dhtlogo.png",
+    "email": "admin@dreamhatcher.ink",
+    "description": "Dream Hatcher Tech supplies and installs Starlink and networking equipment, integrates automated payment systems, develops websites and mobile apps, and provides smartphone maintenance and café services.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Maiduguri",
+      "addressRegion": "Borno State",
+      "addressCountry": "NG"
+    },
+    "areaServed": "Nigeria",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Technology Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Starlink Sales" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Starlink Installation for Business" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Starlink Configuration and Integration" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Payment System Integration" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automatic Payment System Integration" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Smartphone and iPhone Firmware Upgrades" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website and Mobile App Development" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Café Services" } }
+      ]
+    }
+  }
+  </script>
 </head>
 <body>
   <!-- HEADER (fixed/sticky) -->
@@ -880,6 +1180,7 @@
       <nav class="main-nav" id="mainNav" role="navigation">
         <a class="nav-link active" data-page="home" onclick="navigate('home')" href="javascript:void(0)">Overview</a>
         <a class="nav-link" data-page="platforms" onclick="navigate('platforms')" href="javascript:void(0)">Platforms &amp; VTU</a>
+        <a class="nav-link" data-page="services" onclick="navigate('services')" href="javascript:void(0)">Services</a>
         <a class="nav-link" data-page="compliance" onclick="navigate('compliance')" href="javascript:void(0)">Compliance &amp; Banking</a>
         <a class="nav-link" data-page="about" onclick="navigate('about')" href="javascript:void(0)">Company Profile</a>
         <a class="nav-link" data-page="contact" onclick="navigate('contact')" href="javascript:void(0)">Contact</a>
@@ -898,7 +1199,7 @@
     <div class="page active" id="page-home" role="region">
       <section class="hero-section">
         <div class="hero-content">
-          <div class="hero-badge"><i class="fas fa-shield-check"></i> Digital &amp; Telecommunications Infrastructure</div>
+          <div class="hero-badge"><i class="fas fa-shield-halved"></i> Digital &amp; Telecommunications Infrastructure</div>
           <h1 class="hero-title">Engineering Reliable <span class="hl">Digital Utility</span> Infrastructure</h1>
           <p class="hero-desc">Dream Hatcher Tech designs, deploys, and operates high-availability telecommunications gateways, virtual top-up platforms, and digital identity validation workflows across Nigeria.</p>
           <div class="hero-actions">
@@ -909,6 +1210,107 @@
               <i class="fas fa-file-contract"></i> Compliance
             </button>
           </div>
+        </div>
+      </section>
+
+      <!-- EQUIPMENT SHOWCASE (moves right to left) -->
+      <section class="equip-section" aria-labelledby="equip-heading">
+        <div class="section-header">
+          <span class="section-label">Equipment &amp; Hardware</span>
+          <h2 class="section-title" id="equip-heading">Starlink, Wi-Fi &amp; Cabling Equipment We Supply</h2>
+          <p class="section-subtitle">Genuine Starlink kits, access points, Ethernet cabling and professional termination tools — supplied, installed, configured and supported by our engineers.</p>
+        </div>
+
+        <div class="equip-frame">
+          <div class="equip-row">
+            <div class="equip-track" id="equipTrackA">
+              <figure class="equip-item">
+                <div class="equip-thumb"><img src="images/equipment/starlink-standard-kit.jpg" alt="Two Starlink satellite dishes installed with clear sky view" width="400" height="300" loading="lazy" decoding="async"></div>
+                <figcaption class="equip-meta"><div class="equip-name">Starlink Standard Kit</div><div class="equip-tag">Satellite Terminal</div></figcaption>
+              </figure>
+              <figure class="equip-item">
+                <div class="equip-thumb"><img src="images/equipment/starlink-roof-installation.jpg" alt="Technician mounting a Starlink dish during a rooftop installation" width="400" height="300" loading="lazy" decoding="async"></div>
+                <figcaption class="equip-meta"><div class="equip-name">Starlink Roof Installation</div><div class="equip-tag">Mounting &amp; Alignment</div></figcaption>
+              </figure>
+              <figure class="equip-item">
+                <div class="equip-thumb"><img src="images/equipment/wifi-mesh-node.jpg" alt="White Wi-Fi mesh node used to extend wireless coverage" width="400" height="300" loading="lazy" decoding="async"></div>
+                <figcaption class="equip-meta"><div class="equip-name">Wi-Fi Mesh Node</div><div class="equip-tag">Extender / Mesh Add-On</div></figcaption>
+              </figure>
+              <figure class="equip-item">
+                <div class="equip-thumb"><img src="images/equipment/nanostation-cpe.jpg" alt="Ubiquiti NanoStation wireless CPE unit" width="400" height="300" loading="lazy" decoding="async"></div>
+                <figcaption class="equip-meta"><div class="equip-name">Ubiquiti NanoStation</div><div class="equip-tag">Outdoor CPE / Bridge</div></figcaption>
+              </figure>
+              <figure class="equip-item">
+                <div class="equip-thumb"><img src="images/equipment/unifi-enterprise-ap.jpg" alt="UniFi enterprise indoor wireless access point" width="400" height="300" loading="lazy" decoding="async"></div>
+                <figcaption class="equip-meta"><div class="equip-name">UniFi Enterprise AP</div><div class="equip-tag">Indoor Access Point</div></figcaption>
+              </figure>
+              <figure class="equip-item">
+                <div class="equip-thumb"><img src="images/equipment/ceiling-mount-ap.jpg" alt="Ceiling-mounted UniFi access point with status LED" width="400" height="300" loading="lazy" decoding="async"></div>
+                <figcaption class="equip-meta"><div class="equip-name">Ceiling-Mount AP</div><div class="equip-tag">PoE Wi-Fi Coverage</div></figcaption>
+              </figure>
+              <figure class="equip-item">
+                <div class="equip-thumb"><img src="images/equipment/outdoor-access-point.jpg" alt="Weatherproof outdoor wireless access point mounted on a wall" width="400" height="300" loading="lazy" decoding="async"></div>
+                <figcaption class="equip-meta"><div class="equip-name">Outdoor Access Point</div><div class="equip-tag">Weatherproof Wi-Fi</div></figcaption>
+              </figure>
+              <figure class="equip-item">
+                <div class="equip-thumb"><img src="images/equipment/mikrotik-map.jpg" alt="MikroTik mAP compact wireless access point" width="400" height="300" loading="lazy" decoding="async"></div>
+                <figcaption class="equip-meta"><div class="equip-name">MikroTik mAP</div><div class="equip-tag">Compact Hotspot AP</div></figcaption>
+              </figure>
+              <figure class="equip-item">
+                <div class="equip-thumb"><img src="images/equipment/poe-injector.jpg" alt="Single-port Power over Ethernet injector" width="400" height="300" loading="lazy" decoding="async"></div>
+                <figcaption class="equip-meta"><div class="equip-name">PoE Injector</div><div class="equip-tag">48V Single-Port Power</div></figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="equip-row">
+            <div class="equip-track" id="equipTrackB">
+              <figure class="equip-item">
+                <div class="equip-thumb"><img src="images/equipment/cat6-utp-cable.jpg" alt="Cat6 UTP Ethernet cable drum" width="400" height="300" loading="lazy" decoding="async"></div>
+                <figcaption class="equip-meta"><div class="equip-name">Cat6 UTP Cable</div><div class="equip-tag">Solid Copper / Bulk Runs</div></figcaption>
+              </figure>
+              <figure class="equip-item">
+                <div class="equip-thumb"><img src="images/equipment/cat6-patch-lead.jpg" alt="Cat6 patch lead with terminated RJ45 plugs" width="400" height="300" loading="lazy" decoding="async"></div>
+                <figcaption class="equip-meta"><div class="equip-name">Cat6 Patch Leads</div><div class="equip-tag">Moulded / Snagless</div></figcaption>
+              </figure>
+              <figure class="equip-item">
+                <div class="equip-thumb"><img src="images/equipment/rj45-plugs.jpg" alt="Close-up of transparent RJ45 8P8C modular plugs" width="400" height="300" loading="lazy" decoding="async"></div>
+                <figcaption class="equip-meta"><div class="equip-name">RJ45 8P8C Plugs</div><div class="equip-tag">Cat5e / Cat6 Connectors</div></figcaption>
+              </figure>
+              <figure class="equip-item">
+                <div class="equip-thumb"><img src="images/equipment/rj45-crimper.jpg" alt="RJ45 crimping tool for modular network plugs" width="400" height="300" loading="lazy" decoding="async"></div>
+                <figcaption class="equip-meta"><div class="equip-name">RJ45 Crimping Tool</div><div class="equip-tag">RJ11 / RJ12 / RJ45</div></figcaption>
+              </figure>
+              <figure class="equip-item">
+                <div class="equip-thumb"><img src="images/equipment/cable-tester.jpg" alt="LAN cable tester for network wiring continuity" width="400" height="300" loading="lazy" decoding="async"></div>
+                <figcaption class="equip-meta"><div class="equip-name">LAN Cable Tester</div><div class="equip-tag">Continuity &amp; Wiring Map</div></figcaption>
+              </figure>
+              <figure class="equip-item">
+                <div class="equip-thumb"><img src="images/equipment/patch-panel.jpg" alt="24-port keystone patch panel for 19 inch rack" width="400" height="300" loading="lazy" decoding="async"></div>
+                <figcaption class="equip-meta"><div class="equip-name">24-Port Patch Panel</div><div class="equip-tag">19&quot; Rack / Keystone</div></figcaption>
+              </figure>
+              <figure class="equip-item">
+                <div class="equip-thumb"><img src="images/equipment/rack-switch.jpg" alt="Rack-mounted network switch with status LEDs" width="400" height="300" loading="lazy" decoding="async"></div>
+                <figcaption class="equip-meta"><div class="equip-name">Rack-Mount Switch</div><div class="equip-tag">Managed Gigabit</div></figcaption>
+              </figure>
+              <figure class="equip-item">
+                <div class="equip-thumb"><img src="images/equipment/fiber-patch-cable.jpg" alt="Fibre optic patch cords with connectors" width="400" height="300" loading="lazy" decoding="async"></div>
+                <figcaption class="equip-meta"><div class="equip-name">Fibre Patch Cords</div><div class="equip-tag">LC / SC · SM &amp; MM</div></figcaption>
+              </figure>
+              <figure class="equip-item">
+                <div class="equip-thumb"><img src="images/equipment/tool-kit.jpg" alt="Network termination tool kit with stripper, tester and punch-down tool" width="400" height="300" loading="lazy" decoding="async"></div>
+                <figcaption class="equip-meta"><div class="equip-name">Termination Tool Kit</div><div class="equip-tag">Stripper / Punch-Down</div></figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="equip-edge equip-edge-l"></div>
+          <div class="equip-edge equip-edge-r"></div>
+        </div>
+
+        <div class="equip-foot">
+          <p class="equip-note"><i class="fas fa-circle-info"></i> Hover or tap any card to pause the showcase. Bulk orders, site surveys and installations are arranged on request.</p>
+          <a class="equip-cta" href="javascript:void(0)" onclick="navigate('contact')">Request Equipment Quote <i class="fas fa-arrow-right"></i></a>
         </div>
       </section>
 
@@ -965,6 +1367,77 @@
           </article>
         </div>
       </section>
+
+      <!-- WHAT WE OFFER (SERVICES) -->
+      <section class="section service-section" aria-labelledby="services-heading">
+        <div class="section-header">
+          <span class="section-label">What We Offer</span>
+          <h2 class="section-title" id="services-heading">Complete Technology Services</h2>
+          <p class="section-subtitle">From Starlink hardware and business installations to payment automation, device maintenance and software development — delivered end to end.</p>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card service-card">
+            <div class="feature-icon fi-gold"><i class="fas fa-satellite-dish"></i></div>
+            <h3>Starlink Sales</h3>
+            <p>Genuine Starlink kits, mesh nodes, mounts, cables and accessories supplied with clear pricing and honest guidance on the right kit for your location.</p>
+          </article>
+          <article class="feature-card service-card">
+            <div class="feature-icon fi-navy"><i class="fas fa-screwdriver-wrench"></i></div>
+            <h3>Starlink Installation for Business</h3>
+            <p>Site survey, roof, wall and pole mounting, weatherproof cable routing, dish alignment and speed validation for offices, shops, schools and estates.</p>
+          </article>
+          <article class="feature-card service-card">
+            <div class="feature-icon fi-teal"><i class="fas fa-sliders"></i></div>
+            <h3>Starlink Configuration &amp; Integration</h3>
+            <p>Router and mesh setup, LAN/WAN configuration, failover alongside existing ISPs, VLANs, hotspot billing and clean network documentation.</p>
+          </article>
+          <article class="feature-card service-card">
+            <div class="feature-icon fi-gold"><i class="fas fa-credit-card"></i></div>
+            <h3>Payment System Integration</h3>
+            <p>Payment gateway integration, dedicated virtual accounts, transaction reconciliation and settlement reporting for web and mobile platforms.</p>
+          </article>
+          <article class="feature-card service-card">
+            <div class="feature-icon fi-navy"><i class="fas fa-arrows-rotate"></i></div>
+            <h3>Automatic Payment System Integration</h3>
+            <p>Recurring billing, auto-renewal, webhook-driven instant crediting and automated reminders that keep subscriptions and wallet funding running without manual work.</p>
+          </article>
+          <article class="feature-card service-card">
+            <div class="feature-icon fi-teal"><i class="fas fa-mobile-screen"></i></div>
+            <h3>Smartphone &amp; iPhone Firmware Upgrades</h3>
+            <p>Firmware flashing, iOS and Android updates, recovery of stalled or boot-looping devices, and routine maintenance for individuals and businesses.</p>
+          </article>
+          <article class="feature-card service-card">
+            <div class="feature-icon fi-gold"><i class="fas fa-code"></i></div>
+            <h3>Website &amp; Mobile App Development</h3>
+            <p>Corporate websites, progressive web apps, Android and iOS applications, dashboards and admin portals built for speed, security and reliability.</p>
+          </article>
+          <article class="feature-card service-card">
+            <div class="feature-icon fi-navy"><i class="fas fa-mug-hot"></i></div>
+            <h3>Café Services</h3>
+            <p>Managed Wi-Fi and hotspot vouchers, browsing, printing, scanning and friendly device support in a clean, professional environment.</p>
+          </article>
+        </div>
+
+        <div class="commit-card">
+          <div>
+            <h3>Our Service Commitment</h3>
+            <p>We are committed to reliable, quality-focused service with honesty and professional standards. Every installation, integration and repair is documented, tested and supported after delivery.</p>
+          </div>
+          <div class="commit-pillars">
+            <div class="commit-pillar"><i class="fas fa-circle-check"></i> Reliable, tested deployments</div>
+            <div class="commit-pillar"><i class="fas fa-gem"></i> Quality-focused workmanship</div>
+            <div class="commit-pillar"><i class="fas fa-handshake"></i> Honest advice and clear pricing</div>
+            <div class="commit-pillar"><i class="fas fa-user-tie"></i> Professional standards</div>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-top:22px;">
+          <a class="btn btn-primary" href="javascript:void(0)" onclick="navigate('services')">
+            Explore All Services <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </section>
     </div>
 
     <!-- 2. PLATFORMS & VTU -->
@@ -1002,6 +1475,126 @@
               <tr><td>Security</td><td>256-Bit SSL / TLS Encryption</td></tr>
             </table>
           </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- 2B. SERVICES & SOLUTIONS -->
+    <div class="page" id="page-services" role="region">
+      <section class="section">
+        <div class="section-header">
+          <span class="section-label">Services &amp; Solutions</span>
+          <h1 class="section-title">What Dream Hatcher Tech Offers</h1>
+          <p class="section-subtitle">Starlink supply and installation, network integration, payment automation, device maintenance, software development and café services — all delivered by one accountable team.</p>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card service-card">
+            <div class="feature-icon fi-gold"><i class="fas fa-satellite-dish"></i></div>
+            <h3>Starlink Sales</h3>
+            <p>Genuine Starlink hardware supplied with clear pricing and honest guidance on the right kit for your site.</p>
+            <ul class="svc-list">
+              <li>Standard and business kit sourcing with warranty guidance</li>
+              <li>Mesh nodes, mounts, cable runs and Ethernet adapters</li>
+              <li>Advice on kit choice based on location, load and budget</li>
+            </ul>
+          </article>
+
+          <article class="feature-card service-card">
+            <div class="feature-icon fi-navy"><i class="fas fa-screwdriver-wrench"></i></div>
+            <h3>Starlink Installation for Business</h3>
+            <p>Professional installations for offices, shops, schools, estates and commercial sites.</p>
+            <ul class="svc-list">
+              <li>Site survey and obstruction check before mounting</li>
+              <li>Roof, wall and pole mounting with weatherproof cable routing</li>
+              <li>Dish alignment, speed testing and handover report</li>
+            </ul>
+          </article>
+
+          <article class="feature-card service-card">
+            <div class="feature-icon fi-teal"><i class="fas fa-sliders"></i></div>
+            <h3>Starlink Configuration &amp; Integration</h3>
+            <p>Your Starlink link configured to work cleanly with the rest of your network.</p>
+            <ul class="svc-list">
+              <li>Router, mesh and guest network configuration</li>
+              <li>Failover with existing fibre or radio ISP, plus VLAN segmentation</li>
+              <li>Hotspot billing, RADIUS setup and network documentation</li>
+            </ul>
+          </article>
+
+          <article class="feature-card service-card">
+            <div class="feature-icon fi-gold"><i class="fas fa-credit-card"></i></div>
+            <h3>Payment System Integration</h3>
+            <p>Reliable collection of payments inside your website, app or internal system.</p>
+            <ul class="svc-list">
+              <li>Payment gateway and dedicated virtual account integration</li>
+              <li>Transaction reconciliation and settlement reporting</li>
+              <li>Secure webhook validation and audit logging</li>
+            </ul>
+          </article>
+
+          <article class="feature-card service-card">
+            <div class="feature-icon fi-navy"><i class="fas fa-arrows-rotate"></i></div>
+            <h3>Automatic Payment System Integration</h3>
+            <p>Automation that keeps subscriptions, renewals and wallet funding running without manual follow-up.</p>
+            <ul class="svc-list">
+              <li>Recurring billing, auto-renewal and subscription plans</li>
+              <li>Automated wallet funding, reminders and receipts</li>
+              <li>Idempotent webhook processing with retry handling</li>
+            </ul>
+          </article>
+
+          <article class="feature-card service-card">
+            <div class="feature-icon fi-teal"><i class="fas fa-mobile-screen"></i></div>
+            <h3>Smartphone &amp; iPhone Firmware Upgrades</h3>
+            <p>Careful firmware and software servicing that brings stalled devices back to life.</p>
+            <ul class="svc-list">
+              <li>iOS and Android updates, firmware flashing and restore</li>
+              <li>Recovery of boot-loop, stuck-logo and storage errors</li>
+              <li>Data backup guidance and post-service health check</li>
+            </ul>
+          </article>
+
+          <article class="feature-card service-card">
+            <div class="feature-icon fi-gold"><i class="fas fa-code"></i></div>
+            <h3>Website &amp; Mobile App Development</h3>
+            <p>Fast, secure digital products built to represent your business properly.</p>
+            <ul class="svc-list">
+              <li>Corporate websites, landing pages and progressive web apps</li>
+              <li>Android and iOS applications with admin dashboards</li>
+              <li>Performance, accessibility and security hardening</li>
+            </ul>
+          </article>
+
+          <article class="feature-card service-card">
+            <div class="feature-icon fi-navy"><i class="fas fa-mug-hot"></i></div>
+            <h3>Café Services</h3>
+            <p>A comfortable, well-connected space for work, study and everyday digital tasks.</p>
+            <ul class="svc-list">
+              <li>Managed Wi-Fi with voucher or token access</li>
+              <li>Browsing, printing, scanning and document support</li>
+              <li>Device setup and basic troubleshooting</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="commit-card">
+          <div>
+            <h3>Reliable Service, Professional Standards</h3>
+            <p>We are committed to reliable, quality-focused service with honesty and professional standards. Every job is scoped clearly, priced transparently, tested before handover and supported afterwards.</p>
+          </div>
+          <div class="commit-pillars">
+            <div class="commit-pillar"><i class="fas fa-circle-check"></i> Tested, documented deployments</div>
+            <div class="commit-pillar"><i class="fas fa-gem"></i> Quality-focused workmanship</div>
+            <div class="commit-pillar"><i class="fas fa-handshake"></i> Honest advice, clear pricing</div>
+            <div class="commit-pillar"><i class="fas fa-user-tie"></i> Professional conduct</div>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-top:24px;">
+          <a class="btn btn-primary" href="javascript:void(0)" onclick="navigate('contact')">
+            <i class="fas fa-paper-plane"></i> Request a Quote
+          </a>
         </div>
       </section>
     </div>
@@ -1197,6 +1790,7 @@
       <nav class="footer-nav">
         <a onclick="navigate('home')" href="javascript:void(0)">Overview</a>
         <a onclick="navigate('platforms')" href="javascript:void(0)">Platforms</a>
+        <a onclick="navigate('services')" href="javascript:void(0)">Services</a>
         <a onclick="navigate('compliance')" href="javascript:void(0)">Compliance</a>
         <a onclick="navigate('about')" href="javascript:void(0)">Company Profile</a>
         <a onclick="navigate('privacy')" href="javascript:void(0)">Privacy</a>
@@ -1302,6 +1896,25 @@
     window.toggleMobileNav = toggleMobileNav;
     window.closeMobileNav = closeMobileNav;
     window.handleContact = handleContact;
+
+    // ----- EQUIPMENT MARQUEE -----
+    // Duplicate the cards once so the right-to-left loop is seamless,
+    // then switch the animation on (skipped automatically if script is blocked).
+    (function() {
+      document.querySelectorAll('.equip-track').forEach(function(track) {
+        var originals = Array.prototype.slice.call(track.children);
+        originals.forEach(function(node) {
+          var clone = node.cloneNode(true);
+          clone.setAttribute('aria-hidden', 'true');
+          clone.querySelectorAll('img').forEach(function(img) {
+            img.setAttribute('alt', '');
+            img.setAttribute('loading', 'lazy');
+          });
+          track.appendChild(clone);
+        });
+        track.classList.add('is-duplicated');
+      });
+    })();
 
     // Font Awesome fallback: if FA doesn't load in 3 seconds, show CSS hamburger
     (function() {
